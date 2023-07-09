@@ -35,20 +35,20 @@ function Board() {
     // Handle card drag
     // This step is needed as the indices are stored in the numbers as 0,1,2 etc. instead of IDs with DND library
     const columns = Array.from(board?.columns)
-    const startColIndex = columns[Number(source.droppableId)]
-    const finishColIndex = columns[Number(destination.droppableId)]
+    const startColIndex = columns[Number(source?.droppableId)]
+    const finishColIndex = columns[Number(destination?.droppableId)]
 
     const startCol: Column = {
       id: startColIndex[0],
-      todos: startColIndex[1].todos
+      todos: startColIndex[1]?.todos
     }
     const finishCol: Column = {
       id: finishColIndex[0],
-      todos: finishColIndex[1].todos
+      todos: finishColIndex[1]?.todos
     }
 
     if (!startCol || !finishCol) return
-    if (source.index === destination.index && startCol! === finishCol!) return
+    if (source?.index === destination?.index && startCol! === finishCol!) return
 
     const newTodos = startCol.todos
     const [todoMoved] = newTodos.splice(source.index, 1)

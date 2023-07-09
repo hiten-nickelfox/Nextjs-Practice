@@ -5,6 +5,8 @@ interface Board {
 interface BoardStore {
   board: Board
   getBoard: () => void
+  searchString: string
+  setSearchString: (searchString: string) => void
   setBoardState: (board: Board) => void
   updateTodoInDB: (todo: Todo, columnID: TypedColumn) => void
 }
